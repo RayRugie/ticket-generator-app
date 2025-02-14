@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #02191d;
+  --color-secondary: #07373f;
+  --color-border: #0e464f;
+  --font-rage: "Road Rage";
+  --font-roboto: "Roboto";
+}

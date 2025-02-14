@@ -1,0 +1,54 @@
+// Ready.module.scss
+
+.ready-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; 
+  }
+  
+  .ready-text {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  
+  .ready-message {
+    span {
+      font-weight: bold;
+    }
+  }
+  
+  .button-group {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1.5rem; 
+    
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      gap: 0.75rem; 
+    }
+  }
+  
+  .book-button,
+  .download-button {
+    flex: 1;
+    border-radius: 12px;
+    border: 1px solid #24A0B5;
+    transition: all 0.3s ease-in-out;
+    padding: 0.75rem;
+  
+    &:hover {
+      background-color: var(#02191d);
+    }
+  }
+  
+  .download-button {
+    background-color: #24A0B5;
+    color: white;
+  
+    &:hover {
+      background-color: rgba(36, 160, 181, 0.7);
+    }
+  }
+  

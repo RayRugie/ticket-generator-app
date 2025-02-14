@@ -1,0 +1,45 @@
+// Tab.module.scss
+
+.tab-container {
+    border: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 auto;
+    display: flex;
+    max-width: 700px;
+    width: 100%;
+    flex-direction: column;
+    gap: 1.25rem; /* gap-y-5 */
+    border-radius: 32px;
+    padding: 1rem;
+  
+    @media (min-width: 768px) {
+      background-color: #041E23;
+      padding: 3rem;
+    }
+  }
+  
+  .tab-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem; /* gap-y-1 */
+  }
+  
+  .tab-header-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .tab-title {
+    font-size: 1.5rem; /* text-2xl */
+    text-transform: capitalize;
+  
+    @media (min-width: 768px) {
+      font-size: 32px;
+    }
+  }
+  
+  .tab-step {
+    font-size: 1rem;
+  }
+  

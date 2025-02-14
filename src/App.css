@@ -1,0 +1,17 @@
+/* App.css */
+
+.app-container {
+  min-height: 100dvh; 
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; 
+  background: linear-gradient(to bottom, #02191d, #07373f);
+  color: white;
+  padding: 0.5rem 0.75rem; 
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    padding: 1.25rem 1.25rem; 
+  }
+}

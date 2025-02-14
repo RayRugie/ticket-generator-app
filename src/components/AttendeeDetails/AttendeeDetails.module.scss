@@ -1,0 +1,114 @@
+// AttendeeDetails.module.scss
+
+.attendee-details {
+    border: 1px solid var(#0e464f);
+    border-radius: 2rem;
+    background-color: #08252b;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .attendee-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+  }
+  
+  .image-upload-container {
+    border: 1px solid var(#0e464f);
+    background-color: rgba(var(#02191d), 0.3);
+    border-radius: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .image-upload-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .image-overlay {
+    background-color: var(#02191d);
+    position: absolute;
+    top: 5rem;
+    right: 1rem;
+    bottom: 2.5rem;
+    left: 1rem;
+  }
+  
+  .separator {
+    background-color: var(#07373f);
+    height: 4px;
+    width: 100%;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .input-field {
+    border: 1px solid var(#0e464f);
+    height: 3rem;
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .email-input {
+    border: 1px solid var(#0e464f);
+    height: 3rem;
+    border-radius: 0.5rem;
+    padding: 0 2.5rem;
+    position: relative;
+  }
+  
+  .email-icon {
+    position: absolute;
+    top: 3rem;
+    left: 0.5rem;
+  }
+  
+  .textarea-field {
+    border: 1px solid var(#0e464f);
+    height: 8rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .button {
+    flex: 1;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+    border: 1px solid #24a0b5;
+  }
+  
+  .button-back {
+    background-color: transparent;
+    color: #24a0b5;
+    &:hover {
+      background-color: var(#02191d);
+    }
+  }
+  
+  .button-submit {
+    background-color: #24a0b5;
+    color: white;
+    &:hover {
+      background-color: rgba(36, 160, 181, 0.7);
+    }
+  }
+  

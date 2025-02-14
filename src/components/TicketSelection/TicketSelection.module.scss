@@ -1,0 +1,79 @@
+// TicketSelection.module.scss
+
+.ticket-selection-container {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; 
+    border-radius: 16px;
+    
+    @media (min-width: 768px) {
+      border: 1px solid var(#0e464f);
+      background-color: #08252B;
+      padding: 2rem; 
+    }
+  }
+  
+  .ticket-divider {
+    height: 0.25rem; 
+    background-color: var(#07373f);
+  }
+  
+  .ticket-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; 
+    margin-bottom: 1rem; 
+  }
+  
+  .ticket-select {
+    margin-left: 0.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid var(#0e464f);
+    padding: 0.75rem 0.5rem; 
+    background-color: #07373f;
+  }
+  
+  .ticket-buttons {
+    display: flex;
+    justify-content: space-between;
+    height: 48px;
+    gap: 1.5rem; 
+    
+    @media (max-width: 768px) {
+      flex-direction: column-reverse; 
+      gap: 1.05rem; 
+    }
+  }
+  
+  .ticket-button {
+    flex: 1;
+    border-radius: 12px;
+    border: 1px solid #24A0B5;
+    transition: all 0.3s ease-in-out;
+    
+    &.cancel {
+      color: #24A0B5;
+      
+      &:hover {
+        background-color: var(#02191d);
+      }
+    }
+    
+    &.next {
+      width: 100%;
+      background-color: #24A0B5;
+      color: white;
+      
+      &:hover {
+        background-color: rgba(36, 160, 181, 0.7);
+      }
+    }
+  
+    @media (max-width: 768px) {
+        margin-bottom: -3.8%;
+      padding: 0.75rem; 
+    }
+  }
+  
