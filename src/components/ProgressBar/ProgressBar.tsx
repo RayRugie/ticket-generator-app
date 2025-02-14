@@ -12,7 +12,7 @@ const ProgressBar: React.FC<PropTypes> = ({ value, color }) => {
     <div className={styles["progress-bar"]} aria-labelledby="form progress bar">
       <div
         className={styles["progress-fill"]}
-        style={{ width: `${progress}%`, backgroundColor: color }}
+        style={{ width: `${progress}%`, backgroundColor: color  }}
       ></div>
     </div>
   );

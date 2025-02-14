@@ -6,6 +6,10 @@ const TechemberTicket = () => {
     state: { name, email, ticketType, quantity, specialRequest, imageUrl },
   } = useFormContext();
 
+    // Add these console logs
+    console.log("Current imageUrl in ticket:", imageUrl);
+    console.log("Type of imageUrl:", typeof imageUrl);
+  
   return (
     <div className={styles["ticket-container"]}>
       <div className={styles["ticket-wrapper"]}>
@@ -21,15 +25,19 @@ const TechemberTicket = () => {
               </div>
 
               <div className={styles["ticket-image"]}>
-                <div className={styles["ticket-image-container"]}>
-                  <img
-                    aria-labelledby="user image"
-                    src={(imageUrl as string) || "/user-image.svg"}
-                    alt="user image"
-                    className={styles["ticket-user-image"]}
-                  />
-                </div>
-              </div>
+  <div className={styles["ticket-image-container"]}>
+    <img
+      aria-label="user image"
+      src={imageUrl && typeof imageUrl === 'string' ? imageUrl : '/user-image.svg'}
+      alt="user image"
+      className={styles["ticket-user-image"]}
+      onError={(e) => {
+        console.error('Image failed to load:', imageUrl);
+        e.currentTarget.src = '/user-image.svg';
+      }}
+    />
+  </div>
+</div>
 
               <div className={styles["ticket-info"]}>
                 <div className={styles["ticket-info-grid"]}>

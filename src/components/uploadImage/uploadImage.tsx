@@ -1,5 +1,6 @@
 import { useState, useRef, ChangeEvent, DragEvent } from "react";
 import styles from "./uploadImage.module.scss";
+
 interface ImageUploadProps {
   onImageUpload: (imageUrl: string | File) => void;
 }
@@ -7,33 +8,44 @@ interface ImageUploadProps {
 const ImageUpload: React.FC<ImageUploadProps> = ({ onImageUpload }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const uploadImageToCloudinary = async (file: File) => {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "upload_1");
-
+    formData.append("upload_preset", "ml_default");
+    
     try {
       setIsLoading(true);
-      console.log("Starting function call");
+     
+      const localPreview = URL.createObjectURL(file);
+      setSelectedImage(localPreview);
+      
       const response = await fetch(
-         `https://api.cloudinary.com/v1_1/dcmvrcdc8/image/upload` ,
+        `https://api.cloudinary.com/v1_1/dcmvrcdc8/image/upload`,
         {
           method: "POST",
           body: formData,
         }
       );
-      
-
+  
+      if (!response.ok) {
+        throw new Error(`Upload failed with status ${response.status}`);
+      }
+  
       const data = await response.json();
       if (data.secure_url) {
         setSelectedImage(data.secure_url);
         onImageUpload(data.secure_url);
+        console.log("Upload successful:", data.secure_url);
+        // Clean up local preview
+        URL.revokeObjectURL(localPreview);
       }
-      console.log(data);
     } catch (error) {
       console.error("Error uploading image:", error);
+      setSelectedImage(null);
+      alert("Failed to upload image. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -52,12 +64,24 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImageUpload }) => {
       inputRef.current.click();
     }
   };
+
+  const handleDragEnter = (e: DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
   const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
   };
 
   const handleDrop = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
+    setIsDragging(false);
     const file = e.dataTransfer.files?.[0];
     if (file) {
       uploadImageToCloudinary(file);
@@ -66,8 +90,10 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImageUpload }) => {
 
   return (
     <div
-      className={styles["image-upload-container"]}
+      className={`${styles["image-upload-container"]} ${isDragging ? styles["dragging"] : ""}`}
       onClick={handleClick}
+      onDragEnter={handleDragEnter}
+      onDragLeave={handleDragLeave}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
     >
@@ -77,18 +103,16 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImageUpload }) => {
         accept="image/*"
         className={styles["image-input"]}
         onChange={handleChange}
-        aria-labelledby="image input"
+        aria-label="Image input"
       />
-      {selectedImage ? (
-        isLoading ? (
-          <span>Uploading image...</span>
-        ) : (
-          <img
-            src={selectedImage}
-            alt="Selected"
-            className={styles["image-preview"]}
-          />
-        )
+      {isLoading ? (
+        <span>Uploading image...</span>
+      ) : selectedImage ? (
+        <img
+          src={selectedImage}
+          alt="Selected"
+          className={styles["image-preview"]}
+        />
       ) : (
         <div className={styles["image-placeholder"]}>
           <img src="cloud-download.svg" alt="cloud icon" />
