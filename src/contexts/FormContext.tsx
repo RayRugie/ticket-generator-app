@@ -82,9 +82,10 @@ import {
         if (!action.payload) return state;
         return {
           ...state,
-          imageUrl: action.payload,
+          imageUrl: action.payload, // Ensure the image URL is updated
         };
       }
+      
       case "UPDATE_EMAIL": {
         if (!action.payload) return state;
         return {

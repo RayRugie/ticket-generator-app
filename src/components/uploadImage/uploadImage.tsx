@@ -1,6 +1,5 @@
 import { useState, useRef, ChangeEvent, DragEvent } from "react";
 import styles from "./uploadImage.module.scss";
-
 interface ImageUploadProps {
   onImageUpload: (imageUrl: string | File) => void;
 }
@@ -19,7 +18,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImageUpload }) => {
       setIsLoading(true);
       console.log("Starting function call");
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/dcmvrcdc8/image/upload`,
+         `https://api.cloudinary.com/v1_1/dcmvrcdc8/image/upload` ,
         {
           method: "POST",
           body: formData,
