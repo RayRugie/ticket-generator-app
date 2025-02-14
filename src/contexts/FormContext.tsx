@@ -95,7 +95,7 @@ import {
         if (!action.payload) return state;
         return {
           ...state,
-          imageUrl: action.payload,
+          imageUrl: typeof action.payload === "string" ? action.payload : "",
         };
       }
       case "UPDATE_EMAIL": {

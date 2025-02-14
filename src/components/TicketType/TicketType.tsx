@@ -1,5 +1,6 @@
 import { useFormContext } from "../../contexts/FormContext";
 import styles from "./TicketType.module.scss";
+import { useEffect, useState } from "react";
 
 interface TicketTypes {
   name: string;
@@ -28,8 +29,30 @@ const ticketTypes: TicketTypes[] = [
 const TicketType: React.FC = () => {
   const {
     dispatch,
-    state: { ticketType },
+    state: { ticketType, imageUrl },
   } = useFormContext();
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  useEffect(() => {
+    let objectUrl: string | null = null;
+    
+    if (imageUrl) {
+      if (typeof imageUrl === "string") {
+        setImagePreview(imageUrl);
+      } else {
+        objectUrl = URL.createObjectURL(imageUrl);
+        setImagePreview(objectUrl);
+      }
+    } else {
+      setImagePreview(null);
+    }
+
+    return () => {
+      if (objectUrl) {
+        URL.revokeObjectURL(objectUrl);
+      }
+    };
+  }, [imageUrl]);
 
   const handleTicketData = (ticketPrice: string | number, ticketType: string) => {
     dispatch({ type: "TICKET_PRICE", payload: ticketPrice });
@@ -42,22 +65,40 @@ const TicketType: React.FC = () => {
       className={styles["ticket-type-container"]}
     >
       <span>Select Ticket Type:</span>
+      
+      {imagePreview && (
+        <div className={styles["image-preview"]}>
+          <img src={imagePreview} alt="Uploaded event" />
+        </div>
+      )}
+
       <ul className={styles["ticket-list"]}>
         {ticketTypes.map((ticket) => (
           <li
             key={ticket.name}
-            className={`${styles["ticket-item"]} ${ticket.name === ticketType ? styles.selected : ""}`}
+            className={`${styles["ticket-item"]} ${
+              ticket.name === ticketType ? styles.selected : ""
+            }`}
             onClick={() => handleTicketData(ticket.amount, ticket.name)}
           >
             <div className={styles["ticket-info"]}>
-              <span aria-labelledby="ticket name" className={styles["ticket-name"]}>
+              <span
+                aria-labelledby="ticket name"
+                className={styles["ticket-name"]}
+              >
                 {ticket.name}
               </span>
-              <span className={styles["ticket-capacity"]} aria-labelledby="ticket capacity">
+              <span
+                className={styles["ticket-capacity"]}
+                aria-labelledby="ticket capacity"
+              >
                 {ticket.capacity} left!
               </span>
             </div>
-            <button aria-labelledby="ticket amount" className={styles["ticket-amount"]}>
+            <button
+              aria-labelledby="ticket amount"
+              className={styles["ticket-amount"]}
+            >
               {typeof ticket.amount === "string" ? "Free" : `$${ticket.amount}`}
             </button>
           </li>
