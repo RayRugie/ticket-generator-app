@@ -1,4 +1,4 @@
-import styles from "./ticket.module.scss";
+import styles from "./Ticket.module.scss";
 import { useFormContext } from "../../contexts/FormContext";
 
 const TechemberTicket = () => {
