@@ -1,7 +1,7 @@
 // AttendeeDetails.module.scss
 
 .attendee-details {
-    border: 1px solid var(#0e464f);
+    border: 1px solid #0e464f;
     border-radius: 2rem;
     background-color: #08252b;
     padding: 2rem;
@@ -18,8 +18,8 @@
   }
   
   .image-upload-container {
-    border: 1px solid var(#0e464f);
-    background-color: rgba(var(#02191d), 0.3);
+    border: 1px solid #0e464f;
+    background-color: rgba(2, 25, 29, 0.3);;
     border-radius: 1.5rem;
     padding: 1rem;
   }
