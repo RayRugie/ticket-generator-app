@@ -1,5 +1,5 @@
 import { useTabContext } from "../../contexts/TabContext";
-import ImageUpload from "../ImageUpload/ImageUpload";
+import ImageUpload from "../ImageUpload/uploadImage";
 import { useFormContext } from "../../contexts/FormContext";
 import styles from "./AttendeeDetails.module.scss";
 

@@ -17,20 +17,7 @@ import {
     specialRequest: string;
   }
   
-  // const getInitialState = (): InitialStateProps => {
-  //   const storedState = localStorage.getItem("formData");
-  //   if (storedState) return JSON.parse(storedState);
-  
-  //   return {
-  //     name: "",
-  //     email: "",
-  //     ticketType: "regular access",
-  //     ticketPrice: "free",
-  //     quantity: 1,
-  //     imageUrl: "",
-  //     specialRequest: "",
-  //   };
-  // };
+ 
   
   const initialState: InitialStateProps = {
     name: "",
@@ -95,7 +82,7 @@ import {
         if (!action.payload) return state;
         return {
           ...state,
-          imageUrl: typeof action.payload === "string" ? action.payload : "",
+          imageUrl: action.payload,
         };
       }
       case "UPDATE_EMAIL": {
@@ -145,4 +132,3 @@ import {
   
   export { FormContextProvider, useFormContext };
   
-  // https://res.cloudinary.com/dcqwgw6im/image/upload/v1739412964/zzl56yqahafkwalurie1.png

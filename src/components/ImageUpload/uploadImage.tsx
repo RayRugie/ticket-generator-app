@@ -1,5 +1,5 @@
 import { useState, useRef, ChangeEvent, DragEvent } from "react";
-import styles from "./ImageUpload.module.scss";
+import styles from "./uploadImage.module.scss";
 
 interface ImageUploadProps {
   onImageUpload: (imageUrl: string | File) => void;
@@ -19,12 +19,13 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImageUpload }) => {
       setIsLoading(true);
       console.log("Starting function call");
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        `https://api.cloudinary.com/v1_1/dcmvrcdc8/image/upload`,
         {
           method: "POST",
           body: formData,
         }
       );
+      
 
       const data = await response.json();
       if (data.secure_url) {
@@ -52,7 +53,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImageUpload }) => {
       inputRef.current.click();
     }
   };
-
   const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
   };
