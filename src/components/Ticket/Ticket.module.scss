@@ -9,11 +9,28 @@
   }
   
   .ticket-wrapper {
+    background-image: url('../../../public/TICKET.svg');
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: center;
     width: 100%;
-    max-width: 28rem; 
+    height: 100%;
+    max-width: 40rem; 
+    
+    
     display: flex;
     flex-direction: column;
     gap: 0.5rem; 
+
+    @media (max-width: 768px) {
+      background-size: contain;
+      padding: 1rem;
+      max-width: 90%;
+      height: auto;
+    }
+    @media (max-width: 480px) {
+      padding: 0.5rem;
+    }
   }
   
   .ticket-box {
@@ -28,6 +45,17 @@
   
   .ticket-content {
     padding: 2.5rem 1.75rem; 
+
+    @media (max-width: 768px) {
+      padding: 2rem 1rem;
+      height: 50%; /* Let content adjust dynamically */
+    }
+  
+    @media (max-width: 480px) {
+      padding: 1.5rem 0.75rem;
+
+    }
+    
   }
   
   .ticket-inner {
@@ -39,6 +67,16 @@
     border: 1px solid #24A0B5;
     // background: linear-gradient(150deg, #07373f, #24A0B5 50%);
     padding: 1.5rem;
+    height: 50%;
+
+    @media (max-width: 768px) {
+      height: 50%;
+      padding: 1rem;
+      gap: 1rem;
+    }
+    @media (max-width: 480px) {
+      padding: 0.75rem;
+    }
   }
   
   .ticket-header {
@@ -55,6 +93,14 @@
     font-weight: 400;
     letter-spacing: 0.05em;
     color: white;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem; /* Reduce font size on smaller screens */
+    }
+  
+    @media (max-width: 480px) {
+      font-size: 1.25rem;
+    }
   }
   
   .ticket-details {
@@ -67,6 +113,9 @@
   .ticket-image {
     border-radius: 8px;
     padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .ticket-image-container {
@@ -74,12 +123,27 @@
     aspect-ratio: 1;
     overflow: hidden;
     border-radius: 8px;
+    width: 80%; /* Set a fixed width */
+    height: 80%; /* Set a fixed height */
+  
+    @media (max-width: 768px) {
+      width: 100px; /* Reduce size on smaller screens */
+      height: 100px;
+    }
+  
+    @media (max-width: 480px) {
+      width: 80px; /* Further reduce size for mobile */
+      height: 80px;
+    }
   }
   
   .ticket-user-image {
-    height: 100%;
     width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image scales proportionally */
+   
   }
+  
   
   .ticket-info {
     display: grid;
@@ -117,13 +181,21 @@
   
   .ticket-barcode {
     position: relative;
-    margin-top: 2rem;
+    // margin-top: 2rem;
     height: 8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
     padding: 0.5rem;
+
+    @media (max-width: 768px) {
+      height: 6rem; /* Reduce barcode height */
+    }
+  
+    @media (max-width: 480px) {
+      height: 5rem;
+    }
   }
   
   .ticket-barcode img {
@@ -131,18 +203,7 @@
     width: 100%;
   }
   
-  .svg-container {
-    position: absolute;
-    inset: 0;
-  }
   
-  .inner-svg-container {
-    position: absolute;
-    inset: 1rem;
-  }
   
-  svg {
-    width: 100%;
-    height: 100%;
-  }
+  
   

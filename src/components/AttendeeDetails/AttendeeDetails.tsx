@@ -59,6 +59,7 @@ const AttendeeDetails = () => {
     setErrors(prev => ({ ...prev, image: undefined }));
   };
 
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -110,6 +111,7 @@ const AttendeeDetails = () => {
             type="text"
             id="name"
             name="name"
+             placeholder="avioflagos"
             aria-labelledby="name input"
             onChange={(e) => {
               dispatch({ type: "UPDATE_NAME", payload: e.target.value });
@@ -169,7 +171,7 @@ const AttendeeDetails = () => {
               }
             }}
             name="project"
-            placeholder="Textarea"
+            placeholder="Special Request"
             id="project"
             className={`${styles["textarea-field"]} ${errors.project ? styles["error-input"] : ""}`}
             aria-labelledby="project details input"

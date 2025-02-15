@@ -77,38 +77,6 @@ const TechemberTicket = () => {
         </div>
 
         <div className={styles["ticket-barcode"]}>
-          <div className={styles["svg-container"]}>
-            <svg width="100%" height="100%" viewBox="0 0 400 150" preserveAspectRatio="none">
-              <path
-                d="M40,0 C40,0 80,0 120,0
-                   C360,0 360,0 360,0
-                   C360,0 400,40 400,40
-                   L400,110 C400,110 360,150 360,150
-                   L40,150 C40,150 0,110 0,110
-                   L0,40 C0,40 40,0 40,0 Z"
-                fill="none"
-                stroke="#24A0B5"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
-
-          <div className={styles["inner-svg-container"]}>
-            <svg width="100%" height="100%" viewBox="0 0 400 150" preserveAspectRatio="none">
-              <path
-                d="M35,0 C35,0 75,0 115,0
-                   C365,0 365,0 365,0
-                   C365,0 400,35 400,35
-                   L400,115 C400,115 365,150 365,150
-                   L35,150 C35,150 0,115 0,115
-                   L0,35 C0,35 35,0 35,0 Z"
-                fill="none"
-                stroke="#24A0B5"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
-
           <img src="bar-code-large.svg" alt="bar code image" />
         </div>
       </div>
