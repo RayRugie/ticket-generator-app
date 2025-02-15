@@ -156,7 +156,7 @@ const AttendeeDetails = () => {
         </div>
 
         <div className={styles["input-group"]} aria-labelledby="project details input">
-          <label htmlFor="project">About the project *</label>
+          <label htmlFor="project">Special Request *</label>
           <textarea
             onChange={(e) => {
               dispatch({
