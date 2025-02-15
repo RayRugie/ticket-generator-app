@@ -10,10 +10,10 @@
   
   .ticket-wrapper {
     width: 100%;
-    max-width: 28rem; /* max-w-md */
+    max-width: 28rem; 
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* space-y-2 */
+    gap: 0.5rem; 
   }
   
   .ticket-box {
@@ -27,14 +27,14 @@
   }
   
   .ticket-content {
-    padding: 2.5rem 1.75rem; /* px-7 py-10 */
+    padding: 2.5rem 1.75rem; 
   }
   
   .ticket-inner {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* space-y-6 */
+    gap: 1.5rem; 
     border-radius: 16px;
     border: 1px solid #24A0B5;
     background: linear-gradient(150deg, #07373f, #24A0B5 50%);
@@ -51,7 +51,7 @@
   
   .ticket-title {
     font-family: "Rage", sans-serif;
-    font-size: 1.875rem; /* text-3xl */
+    font-size: 1.875rem; 
     font-weight: bold;
     letter-spacing: 0.05em;
     color: white;
@@ -61,7 +61,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    color: #d1d5db; /* text-gray-300 */
+    color: #d1d5db;
   }
   
   .ticket-image {
@@ -87,10 +87,10 @@
     gap: 0;
     border-radius: 12px;
     padding: 0.5rem;
-    background-color: var(--secondary);
+    background-color: #07373f;
   
     @media (max-width: 768px) {
-      font-size: 0.875rem; /* max-md:text-xs */
+      font-size: 0.875rem; 
     }
   }
   
@@ -101,15 +101,15 @@
   
   .ticket-info-item {
     padding: 0.5rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #0e464f;
   }
   
   .ticket-info-item:nth-child(odd) {
-    border-right: 1px solid var(--border-color);
+    border-right: 1px solid #0e464f;
   }
   
   .ticket-info-label {
-    color: #6b7280; /* text-gray-500 */
+    color: #6b7280; 
   }
   
   .ticket-barcode {

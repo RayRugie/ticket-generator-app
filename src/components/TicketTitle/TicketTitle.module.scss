@@ -20,7 +20,7 @@
   
   .ticket-title-heading {
     font-family: "Road Rage", serif;
-    font-size: 62px; 
+    font-size: 52px; 
     font-weight: 400;
   
     @media (min-width: 768px) {
@@ -51,6 +51,7 @@
      
   
     @media (min-width: 768px) {
+      margin-top: 5%;
       flex-direction: row;
     }
   

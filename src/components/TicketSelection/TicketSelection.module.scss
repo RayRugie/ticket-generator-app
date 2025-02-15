@@ -6,9 +6,10 @@
     flex-direction: column;
     gap: 2rem; 
     border-radius: 16px;
+    border: #0E464F;
     
     @media (min-width: 768px) {
-      border: 1px solid var(#0e464f);
+      border: 1px solid #0e464f;
       background-color: #08252B;
       padding: 2rem; 
     }
@@ -16,7 +17,7 @@
   
   .ticket-divider {
     height: 0.25rem; 
-    background-color: var(#07373f);
+    background-color: #07373f;
   }
   
   .ticket-form-group {
@@ -30,7 +31,7 @@
     margin-left: 0.5rem;
     cursor: pointer;
     border-radius: 8px;
-    border: 1px solid var(#0e464f);
+    border: 1px solid #0e464f;
     padding: 0.75rem 0.5rem; 
     background-color: #07373f;
   }
@@ -57,7 +58,7 @@
       color: #24A0B5;
       
       &:hover {
-        background-color: var(#02191d);
+        background-color: #02191d;
       }
     }
     

@@ -1,5 +1,5 @@
 // AttendeeDetails.module.scss
-
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 .attendee-details {
     border: 1px solid #0e464f;
     border-radius: 2rem;
@@ -34,7 +34,7 @@
   }
   
   .image-overlay {
-    background-color: var(#02191d);
+    background-color: #02191d;
     position: absolute;
     top: 5rem;
     right: 1rem;
@@ -43,7 +43,7 @@
   }
   
   .separator {
-    background-color: var(#07373f);
+    background-color: #07373f;
     height: 4px;
     width: 100%;
   }
@@ -56,7 +56,7 @@
 
   
   .input-field {
-    border: 1px solid var(#0e464f);
+    border: 1px solid #0e464f;
     height: 3rem;
     border-radius: 0.5rem;
     padding: 0 0.5rem;
@@ -95,6 +95,7 @@
 
     .input-field {
       width: 100%;
+      border: none;
     }
  
   }
@@ -106,7 +107,7 @@
   }
   
   .textarea-field {
-    border: 1px solid var(#0e464f);
+    border: 1px solid #0e464f;
     height: 8rem;
     border-radius: 0.5rem;
     padding: 0.5rem;
@@ -125,6 +126,11 @@
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
   
   .button {
@@ -133,6 +139,7 @@
     padding: 0.75rem;
     transition: all 0.3s ease;
     border: 1px solid #24a0b5;
+    font-family: "Nanum Myeongjo", serif;
   }
   
   .button-back {
